@@ -97,7 +97,7 @@ export default function Home() {
                 <AnimatedSection animation="fade-in-up" delay={400}>
                   <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-2">
                     <Link
-                      href="/resume/CV Suryana 2026.pdf"
+                      href="/resume/CV suryana Dhuchri 2026.pdf"
                       download="CV_Suryana_Dhuchri_2026.pdf"
                       className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-lg transition-all hover:bg-primary-hover shadow-lg shadow-blue-900/20 hover:shadow-xl hover:shadow-blue-900/30 hover:scale-105"
                     >
