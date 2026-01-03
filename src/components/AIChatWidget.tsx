@@ -53,10 +53,10 @@ export default function AIChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4 font-sans">
+        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-4 font-sans">
             {/* Chat Window */}
             {isOpen && (
-                <div className="w-[350px] md:w-[400px] h-[500px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden animate-fade-in-up origin-bottom-right">
+                <div className="w-[320px] sm:w-[350px] md:w-[400px] h-[450px] sm:h-[500px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden animate-fade-in-up origin-bottom-right mb-2">
                     {/* Header */}
                     <div className="p-4 bg-primary text-white flex justify-between items-center bg-gradient-to-r from-blue-600 to-indigo-600">
                         <div className="flex items-center gap-3">
@@ -136,20 +136,21 @@ export default function AIChatWidget() {
             {/* Floating Button */}
             <button
                 onClick={toggleChat}
-                className={`px-6 py-3 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 font-bold text-sm tracking-wide ${isOpen
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 font-bold text-xs sm:text-sm tracking-wide ${isOpen
                     ? 'bg-gray-700 text-white'
                     : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white animate-pulse-glow shadow-blue-500/40'
                     }`}
             >
                 {isOpen ? (
                     <>
-                        <span>Close</span>
-                        <span className="material-symbols-outlined ml-2 text-[18px]">close</span>
+                        <span className="hidden sm:inline">Close</span>
+                        <span className="material-symbols-outlined sm:ml-2 text-[16px] sm:text-[18px]">close</span>
                     </>
                 ) : (
                     <>
-                        <span className="material-symbols-outlined mr-2 text-[20px] animate-bounce">auto_awesome</span>
-                        <span>Chat with my AI</span>
+                        <span className="material-symbols-outlined mr-1 sm:mr-2 text-[18px] sm:text-[20px] animate-bounce">auto_awesome</span>
+                        <span className="hidden sm:inline">Chat with my AI</span>
+                        <span className="sm:hidden">AI Chat</span>
                     </>
                 )}
             </button>

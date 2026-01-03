@@ -46,9 +46,25 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-200/50 rounded-full blur-3xl -z-10 dark:bg-slate-800/20 opacity-60 animate-float" style={{ animationDelay: '1s' }}></div>
 
           <div className="container mx-auto px-6 md:px-12 lg:px-20">
-            <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+              {/* Profile Image - Show on mobile first */}
+              <ScrollReveal yOffset={80} triggerTrigger={1.05} triggerComplete={0.8} className="lg:order-2 lg:w-[350px] flex-shrink-0">
+                <div className="relative w-full max-w-[200px] sm:max-w-[240px] lg:max-w-full mx-auto group">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-400 rounded-full rotate-6 opacity-20 dark:opacity-30 blur-sm transform transition-transform duration-500 group-hover:rotate-3"></div>
+                  <div className="relative rounded-full overflow-hidden aspect-square shadow-2xl bg-white dark:bg-slate-800 border-4 border-white dark:border-slate-700">
+                    <Image
+                      src="/image/57616257.jpg"
+                      alt="Professional portrait of Suryana Dhuchri"
+                      fill
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      priority
+                    />
+                  </div>
+                </div>
+              </ScrollReveal>
+
               {/* Left Content */}
-              <div className="flex-1 space-y-8 text-center lg:text-left">
+              <div className="flex-1 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left">
                 <AnimatedSection animation="fade-in-up" delay={200}>
                   <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm mx-auto lg:mx-0">
@@ -103,23 +119,6 @@ export default function Home() {
                   </div>
                 </AnimatedSection>
               </div>
-
-              {/* Right Image */}
-              {/* Right Image */}
-              <ScrollReveal yOffset={80} triggerTrigger={1.05} triggerComplete={0.8} className="lg:w-[350px] flex-shrink-0">
-                <div className="relative w-full max-w-[280px] lg:max-w-full mx-auto group">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-400 rounded-full rotate-6 opacity-20 dark:opacity-30 blur-sm transform transition-transform duration-500 group-hover:rotate-3"></div>
-                  <div className="relative rounded-full overflow-hidden aspect-square shadow-2xl bg-white dark:bg-slate-800 border-4 border-white dark:border-slate-700">
-                    <Image
-                      src="/image/57616257.jpg"
-                      alt="Professional portrait of Suryana Dhuchri"
-                      fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      priority
-                    />
-                  </div>
-                </div>
-              </ScrollReveal>
             </div>
 
             {/* Core Technologies */}
@@ -368,9 +367,9 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-slate-800 to-transparent"></div>
 
           <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
               <ScrollReveal yOffset={40} triggerTrigger={0.9} triggerComplete={0.7}>
-                <div>
+                <div className="text-left">
                   <h3 className="text-primary dark:text-blue-400 font-display font-bold text-lg mb-2">Portfolio</h3>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">What I've Built</h2>
                 </div>
@@ -531,7 +530,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-primary dark:bg-blue-900/20 text-white relative overflow-hidden scroll-mt-32">
+        <section id="contact" className="py-20 pb-32 bg-primary dark:bg-blue-900/20 text-white relative overflow-hidden scroll-mt-32">
           <div className="absolute inset-0 bg-primary dark:bg-slate-900 opacity-90 z-0"></div>
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
 
