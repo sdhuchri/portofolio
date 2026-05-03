@@ -128,10 +128,10 @@ const TOOLKIT = [
 ];
 
 const EDUCATION = [
-  { year: '2018', title: 'Bachelor of Technology', org: 'STTI NIIT I-Tech, Jakarta' },
   { year: '2016', title: 'High School Diploma', org: 'CCIT Fakultas Teknik, Universitas Indonesia, Depok' },
-  { year: '2025', title: 'GitHub Copilot Certification', org: 'Jakarta' },
+  { year: '2018', title: 'Bachelor of Technology', org: 'STTI NIIT I-Tech, Jakarta' },
   { year: '2021 / 2022', title: 'Thought Machine Vault, AWS Secure Cloud, RPA, HSM, Scrum', org: 'PT Bank BCA Syariah' },
+  { year: '2025', title: 'GitHub Copilot Certification', org: 'Jakarta' },
 ];
 
 
