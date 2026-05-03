@@ -255,7 +255,7 @@ export default function Home() {
 
               {/* Right portrait */}
               <div className="lg:col-span-5 flex justify-center relative z-10">
-                  <TiltCard intensity={10} className="relative w-[260px] sm:w-[320px] lg:w-[380px] aspect-square">
+                  <TiltCard intensity={10} className="relative w-[180px] sm:w-[280px] lg:w-[380px] aspect-square">
                     <div className="absolute -inset-4 bg-gradient-to-tr from-primary via-violet-500 to-pink-500 rounded-3xl blur-xl opacity-40 dark:opacity-50" style={{ transform: 'translateZ(-40px)' }} />
                     <div className="absolute -inset-2 bg-gradient-to-tr from-blue-400 to-violet-500 rounded-3xl opacity-20" style={{ transform: 'translateZ(-20px)' }} />
                     <div
