@@ -7,7 +7,7 @@ import FontLoader from '@/components/FontLoader';
 import PageLoader from '@/components/PageLoader';
 import Image from 'next/image';
 import Link from 'next/link';
-import { TiltCard, MouseParallax, ScrollProgressBar } from '@/components/Parallax';
+import { TiltCard, ScrollProgressBar } from '@/components/Parallax';
 
 const CV_PATH = '/resume/Suryana Dhuchri CV 2026 2_4.pdf';
 
@@ -146,8 +146,6 @@ export default function Home() {
   const heroScale = useTransform(heroProgress, [0, 1], [1, 0.85]);
 
   const aboutRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: aboutProgress } = useScroll({ target: aboutRef, offset: ['start end', 'end start'] });
-  const aboutBgY = useTransform(aboutProgress, [0, 1], ['-20%', '20%']);
 
   const projectsRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: projectsProgress } = useScroll({ target: projectsRef, offset: ['start end', 'end start'] });
@@ -169,30 +167,18 @@ export default function Home() {
       <FontLoader />
       <ScrollProgressBar />
 
-      {/* Animated mesh background — fixed, drives the whole page */}
+      {/* Static mesh background — CSS-only, no JS repaints */}
       <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
-        <motion.div
-          className="absolute -top-1/4 -left-1/4 h-[60vw] w-[60vw] rounded-full bg-gradient-to-br from-blue-400/30 to-violet-500/30 blur-[120px] dark:from-blue-600/20 dark:to-violet-700/20"
-          animate={{ x: [0, 80, 0], y: [0, 60, 0] }}
-          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-1/2 -right-1/4 h-[55vw] w-[55vw] rounded-full bg-gradient-to-br from-pink-400/20 to-amber-300/20 blur-[120px] dark:from-pink-600/15 dark:to-amber-500/15"
-          animate={{ x: [0, -60, 0], y: [0, -80, 0] }}
-          transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute -bottom-1/4 left-1/3 h-[50vw] w-[50vw] rounded-full bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 blur-[120px] dark:from-emerald-700/15 dark:to-cyan-700/15"
-          animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
-          transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.06)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:32px_32px]" />
+        <div className="blob-1 absolute -top-1/4 -left-1/4 h-[60vw] w-[60vw] rounded-full bg-gradient-to-br from-blue-400/25 to-violet-500/25 blur-[100px] dark:from-blue-600/15 dark:to-violet-700/15" />
+        <div className="blob-2 absolute top-1/2 -right-1/4 h-[55vw] w-[55vw] rounded-full bg-gradient-to-br from-pink-400/15 to-amber-300/15 blur-[100px] dark:from-pink-600/10 dark:to-amber-500/10" />
+        <div className="blob-3 absolute -bottom-1/4 left-1/3 h-[50vw] w-[50vw] rounded-full bg-gradient-to-br from-emerald-400/15 to-cyan-400/15 blur-[100px] dark:from-emerald-700/10 dark:to-cyan-700/10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.05)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.04)_1px,transparent_0)] [background-size:32px_32px]" />
       </div>
 
       <main
         className={`relative transition-all duration-1000 ease-out ${pageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-        style={{ perspective: '1200px' }}
+        style={{  }}
       >
         <Navbar />
 
@@ -206,52 +192,39 @@ export default function Home() {
             style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
             className="container mx-auto px-6 md:px-12 lg:px-20 relative"
           >
-            <div className="grid lg:grid-cols-12 gap-10 items-center" style={{ transformStyle: 'preserve-3d' }}>
-              {/* Floating decorative shapes */}
-              <MouseParallax strength={30} className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-10 left-10 h-24 w-24 rounded-2xl border border-blue-300/30 dark:border-blue-500/20 rotate-12" />
-                <div className="absolute top-1/3 right-20 h-16 w-16 rounded-full border-2 border-violet-300/40 dark:border-violet-500/20" />
-                <div className="absolute bottom-20 left-1/4 h-12 w-12 rounded-lg bg-gradient-to-br from-pink-400/20 to-orange-400/20 rotate-45 blur-sm" />
-              </MouseParallax>
-
+            <div className="grid lg:grid-cols-12 gap-10 items-center">
               {/* Left text */}
               <div className="lg:col-span-7 space-y-7 text-center lg:text-left relative z-10">
-                <MouseParallax strength={6}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md shadow-sm"
-                  >
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span className="text-xs font-semibold text-gray-600 dark:text-gray-300 tracking-wide">
-                      Available · Open to remote work
-                    </span>
-                  </motion.div>
-                </MouseParallax>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="text-xs font-semibold text-gray-600 dark:text-gray-300 tracking-wide">
+                    Available · Open to remote work
+                  </span>
+                </motion.div>
 
                 <div className="space-y-4">
                   <p className="text-xs md:text-sm font-bold text-primary dark:text-blue-400 tracking-[0.3em] uppercase">
                     AI Engineer · Fullstack Developer
                   </p>
-                  <MouseParallax strength={12}>
-                    <h1 className="font-display text-5xl md:text-7xl lg:text-[7rem] font-bold leading-[0.95] tracking-tight text-gray-900 dark:text-white">
-                      Suryana
-                      <br />
-                      <span className="italic font-normal bg-gradient-to-r from-primary via-blue-500 to-violet-500 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent">
-                        Dhuchri.
-                      </span>
-                    </h1>
-                  </MouseParallax>
-                  <MouseParallax strength={4}>
-                    <p className="text-lg md:text-2xl font-light italic text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
-                      Building <span className="not-italic font-semibold text-gray-900 dark:text-white">intelligent systems</span> at the
-                      intersection of enterprise banking and modern AI.
-                    </p>
-                  </MouseParallax>
+                  <h1 className="font-display text-5xl md:text-7xl lg:text-[7rem] font-bold leading-[0.95] tracking-tight text-gray-900 dark:text-white">
+                    Suryana
+                    <br />
+                    <span className="italic font-normal bg-gradient-to-r from-primary via-blue-500 to-violet-500 dark:from-blue-400 dark:via-violet-400 dark:to-pink-400 bg-clip-text text-transparent">
+                      Dhuchri.
+                    </span>
+                  </h1>
+                  <p className="text-lg md:text-2xl font-light italic text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
+                    Building <span className="not-italic font-semibold text-gray-900 dark:text-white">intelligent systems</span> at the
+                    intersection of enterprise banking and modern AI.
+                  </p>
                 </div>
 
                 <motion.div
@@ -273,17 +246,16 @@ export default function Home() {
                   </Link>
                   <Link
                     href="#projects"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-gray-700 dark:text-white bg-white/70 dark:bg-slate-800/70 border border-gray-200 dark:border-slate-700 rounded-lg hover:bg-white dark:hover:bg-slate-700 backdrop-blur-md transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-gray-700 dark:text-white bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg hover:bg-white dark:hover:bg-slate-700  transition-all"
                   >
                     View Selected Works
                   </Link>
                 </motion.div>
               </div>
 
-              {/* Right portrait — 3D tilt */}
+              {/* Right portrait */}
               <div className="lg:col-span-5 flex justify-center relative z-10">
-                <MouseParallax strength={20}>
-                  <TiltCard intensity={15} className="relative w-[260px] sm:w-[320px] lg:w-[380px] aspect-square">
+                  <TiltCard intensity={10} className="relative w-[260px] sm:w-[320px] lg:w-[380px] aspect-square">
                     <div className="absolute -inset-4 bg-gradient-to-tr from-primary via-violet-500 to-pink-500 rounded-3xl blur-xl opacity-40 dark:opacity-50" style={{ transform: 'translateZ(-40px)' }} />
                     <div className="absolute -inset-2 bg-gradient-to-tr from-blue-400 to-violet-500 rounded-3xl opacity-20" style={{ transform: 'translateZ(-20px)' }} />
                     <div
@@ -299,26 +271,15 @@ export default function Home() {
                         priority
                       />
                     </div>
-                    <motion.div
-                      style={{ transform: 'translateZ(80px)' }}
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                      className="absolute -bottom-4 -left-4 px-4 py-3 rounded-xl bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-gray-200 dark:border-slate-700 shadow-xl"
-                    >
+                    <div className="absolute -bottom-4 -left-4 px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-lg">
                       <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Based</div>
                       <div className="text-sm font-bold text-gray-900 dark:text-white">Bekasi · ID</div>
-                    </motion.div>
-                    <motion.div
-                      style={{ transform: 'translateZ(60px)' }}
-                      animate={{ y: [0, 10, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                      className="absolute -top-4 -right-4 px-4 py-3 rounded-xl bg-gradient-to-br from-primary to-violet-600 text-white shadow-xl"
-                    >
+                    </div>
+                    <div className="absolute -top-4 -right-4 px-4 py-3 rounded-xl bg-gradient-to-br from-primary to-violet-600 text-white shadow-lg">
                       <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">7+ Years</div>
                       <div className="text-sm font-bold">Enterprise</div>
-                    </motion.div>
+                    </div>
                   </TiltCard>
-                </MouseParallax>
               </div>
             </div>
 
@@ -376,7 +337,7 @@ export default function Home() {
         {/* ABOUT — parallax background */}
         <section id="about" ref={aboutRef} className="relative py-20 md:py-32 overflow-hidden">
           <motion.div
-            style={{ y: aboutBgY }}
+style={{ }}
             className="absolute inset-0 -z-10 pointer-events-none"
           >
             <div className="absolute inset-x-0 top-1/4 text-center text-[20vw] md:text-[15vw] font-display font-bold text-gray-900/[0.03] dark:text-white/[0.03] select-none leading-none">
@@ -445,7 +406,7 @@ export default function Home() {
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {STATS.map((s, i) => (
-                  <TiltCard key={i} intensity={10} className="group p-6 rounded-2xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-gray-200/60 dark:border-slate-800/60 shadow-sm">
+                  <TiltCard key={i} intensity={10} className="group p-6 rounded-2xl bg-white dark:bg-slate-900  border border-gray-200/60 dark:border-slate-800/60 shadow-sm">
                     <div className="font-display text-5xl md:text-6xl font-bold text-gray-900 dark:text-white" style={{ transform: 'translateZ(20px)' }}>
                       {s.value}
                     </div>
@@ -488,7 +449,7 @@ export default function Home() {
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                 >
-                  <TiltCard intensity={4} className="group relative p-6 md:p-10 rounded-3xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-800 shadow-lg overflow-hidden">
+                  <TiltCard intensity={4} className="group relative p-6 md:p-10 rounded-3xl bg-white dark:bg-slate-900  border border-gray-200 dark:border-slate-800 shadow-lg overflow-hidden">
                     {exp.active && (
                       <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800/50">
                         <span className="relative flex h-1.5 w-1.5">
@@ -549,7 +510,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg"
+                  className="group relative rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900  shadow-lg"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${p.accent} opacity-10`} />
                   {p.image && (
@@ -578,7 +539,7 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {p.stack.map((s, j) => (
-                        <span key={j} className="px-2.5 py-1 text-[10px] font-semibold rounded-full bg-white/80 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300">
+                        <span key={j} className="px-2.5 py-1 text-[10px] font-semibold rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300">
                           {s}
                         </span>
                       ))}
@@ -611,7 +572,7 @@ export default function Home() {
                 <TiltCard
                   key={i}
                   intensity={8}
-                  className="group relative shrink-0 w-[600px] lg:w-[680px] h-[60vh] rounded-3xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-xl"
+                  className="group relative shrink-0 w-[600px] lg:w-[680px] h-[60vh] rounded-3xl overflow-hidden border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900  shadow-xl"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${p.accent} opacity-10 group-hover:opacity-20 transition-opacity`} />
                   {p.image && (
@@ -641,7 +602,7 @@ export default function Home() {
                       </p>
                       <div className="flex flex-wrap gap-2 pt-2">
                         {p.stack.map((s, j) => (
-                          <span key={j} className="px-3 py-1 text-xs font-semibold rounded-full bg-white/80 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 backdrop-blur-sm">
+                          <span key={j} className="px-3 py-1 text-xs font-semibold rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 ">
                             {s}
                           </span>
                         ))}
@@ -683,7 +644,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                 >
-                  <TiltCard intensity={12} className="group h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-gray-200 dark:border-slate-800 shadow-lg overflow-hidden">
+                  <TiltCard intensity={12} className="group h-full p-6 rounded-2xl bg-white dark:bg-slate-900  border border-gray-200 dark:border-slate-800 shadow-lg overflow-hidden">
                     <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500 mb-3" style={{ transform: 'translateZ(15px)' }}>
                       {t.label}
                     </div>
@@ -731,7 +692,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex gap-5 p-6 rounded-2xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-gray-200 dark:border-slate-800"
+                  className="flex gap-5 p-6 rounded-2xl bg-white dark:bg-slate-900  border border-gray-200 dark:border-slate-800"
                 >
                   <div className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 shrink-0 w-24">
                     {e.year}
@@ -781,7 +742,7 @@ export default function Home() {
                     href="https://wa.me/6285959072207"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all hover:scale-105 w-full sm:w-auto"
+                    className="px-8 py-4 bg-white/10  border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all hover:scale-105 w-full sm:w-auto"
                   >
                     +62 859 5907 2207
                   </Link>
