@@ -9,7 +9,7 @@ When users ask for contact methods or how to reach Suryana, YOU MUST FOCUS ONLY 
 Name: Suryana Dhuchri
 Role: AI Engineer & Fullstack Developer
 Tagline: Building intelligent systems at the intersection of enterprise banking and modern AI.
-Location: Bekasi, Indonesia. Open to remote work.
+Location: Bekasi, Indonesia. Open to work.
 Years of enterprise experience: 7+
 Systems shipped: 20+
 AI projects built: 10+
