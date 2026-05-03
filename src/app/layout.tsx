@@ -4,17 +4,15 @@ import AIChatWidget from "@/components/AIChatWidget";
 
 export const metadata: Metadata = {
   title: "Suryana Dhuchri - AI Engineer & Fullstack Developer",
-  description: "I build intelligent systems that drive business value. Specialized in scalable fullstack systems, Agentic AI, and end-to-end product delivery.",
-  keywords: ["AI Engineer", "Fullstack Developer", "Machine Learning", "RAG", "Next.js", "Python", "Go"],
+  description: "Building intelligent systems at the intersection of enterprise banking and modern AI. Agentic systems, RAG pipelines, LLM integrations — grounded by 7+ years in core banking and full-stack delivery.",
+  keywords: ["AI Engineer", "Fullstack Developer", "Agentic AI", "RAG", "LLM", "Next.js", "Go", "Core Banking"],
   authors: [{ name: "Suryana Dhuchri" }],
   openGraph: {
     title: "Suryana Dhuchri - AI Engineer & Fullstack Developer",
-    description: "I build intelligent systems that drive business value.",
+    description: "Building intelligent systems at the intersection of enterprise banking and modern AI.",
     type: "website",
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
+  icons: [],
 };
 
 export default function RootLayout({
@@ -24,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="bg-background-light dark:bg-background-dark bg-grid-pattern bg-aurora text-text-light dark:text-text-dark font-body transition-colors duration-300">
+      <body className="text-text-light dark:text-text-dark font-body transition-colors duration-300">
         {children}
         <AIChatWidget />
       </body>

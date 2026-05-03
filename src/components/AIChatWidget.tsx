@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
     role: 'user' | 'bot';
@@ -10,7 +11,7 @@ interface Message {
 export default function AIChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { role: 'bot', text: 'Hi! I am Suryana\'s AI Assistant. Ask me anything about his experience, skills, or resume.' }
+        { role: 'bot', text: "Hi, I'm Suryana's assistant. What would you like to know about his work?" }
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -92,7 +93,26 @@ export default function AIChatWidget() {
                                         : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-200 border border-gray-100 dark:border-slate-700 rounded-tl-none shadow-sm'
                                         }`}
                                 >
-                                    {msg.text}
+                                    {msg.role === 'bot' ? (
+                                        <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1.5 prose-ul:my-1.5 prose-ul:pl-4 prose-li:my-0.5 prose-strong:text-gray-900 dark:prose-strong:text-white">
+                                            <ReactMarkdown
+                                                components={{
+                                                    ul: ({ children }) => <ul className="list-disc pl-4 space-y-1">{children}</ul>,
+                                                    ol: ({ children }) => <ol className="list-decimal pl-4 space-y-1">{children}</ol>,
+                                                    p: ({ children }) => <p className="mb-1.5 last:mb-0">{children}</p>,
+                                                    a: ({ href, children }) => (
+                                                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary dark:text-blue-400 underline">
+                                                            {children}
+                                                        </a>
+                                                    ),
+                                                }}
+                                            >
+                                                {msg.text}
+                                            </ReactMarkdown>
+                                        </div>
+                                    ) : (
+                                        msg.text
+                                    )}
                                 </div>
                             </div>
                         ))}
