@@ -126,7 +126,7 @@ a { color: inherit; text-decoration: none; }
    Layout helpers
    ========================================================================= */
 .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
-.section { position: relative; padding: clamp(72px, 11vw, 160px) 0; }
+.section { position: relative; padding-top: clamp(72px, 11vw, 160px); padding-bottom: clamp(72px, 11vw, 160px); }
 
 .eyebrow {
   font-family: var(--font-mono);
@@ -408,7 +408,7 @@ a { color: inherit; text-decoration: none; }
 /* =========================================================================
    Footer
    ========================================================================= */
-.footer { border-top: 1px solid var(--line); padding: 40px 0; }
+.footer { border-top: 1px solid var(--line); padding-top: 40px; padding-bottom: 40px; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .footer .copy { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); letter-spacing: .03em; }
 .socials { display: flex; gap: 8px; }

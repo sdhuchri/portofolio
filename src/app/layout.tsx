@@ -29,8 +29,9 @@ export const metadata: Metadata = {
   icons: [],
 };
 
-// Set theme before first paint to avoid a flash of the wrong theme.
-const THEME_INIT = `(function(){try{var k='sd-theme';var t=localStorage.getItem(k);if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}var r=document.documentElement;r.setAttribute('data-theme',t);if(t==='dark'){r.classList.add('dark');}}catch(e){}})();`;
+// Set theme before first paint to avoid a flash. Default is always light;
+// only honor an explicit saved choice (when the visitor toggled the theme).
+const THEME_INIT = `(function(){try{var k='sd-theme';var t=localStorage.getItem(k)||'light';var r=document.documentElement;r.setAttribute('data-theme',t);if(t==='dark'){r.classList.add('dark');}else{r.classList.remove('dark');}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
