@@ -21,8 +21,11 @@ module.exports = {
                 "accent-dark": "#475569",
             },
             fontFamily: {
-                display: ["Space Grotesk", "sans-serif"],
-                body: ["Inter", "sans-serif"],
+                sans: ["Hanken Grotesk", "system-ui", "sans-serif"],
+                display: ["Hanken Grotesk", "sans-serif"],
+                serif: ["Instrument Serif", "Georgia", "serif"],
+                mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+                body: ["Hanken Grotesk", "sans-serif"],
             },
             animation: {
                 'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
