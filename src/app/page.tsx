@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Navbar from '@/components/Navbar';
 
 const EMAIL = 'suryana.dhuchri@gmail.com';
-const CV_PATH = '/resume/Suryana Dhuchri CV 2026 2_4.pdf';
+const CV_PATH = '/resume/Suryana_Dhuchri_CV_2026_ATS_EN.pdf';
 
 const MARQUEE_ITEMS = [
   'Agentic AI',
@@ -76,8 +76,8 @@ const PROJECTS: Project[] = [
     cat: 'Agentic SaaS',
     agentic: true,
     title: 'Business UMKM+',
-    sub: 'AI Business OS',
-    desc: "An all-in-one operating system for Indonesian small businesses. Owners run everything from one place — automated financial reports, tax prep, and AI-generated content. Wired through MCP to Mekari, Odoo & Accurate, and connected to WhatsApp Business so each owner's customers chat directly with their own AI bot.",
+    sub: 'AI business web app',
+    desc: "An all-in-one web app for Indonesian small businesses. Owners run everything from one place — automated financial reports, tax prep, and AI-generated content. Wired through MCP to Mekari, Odoo & Accurate, and connected to WhatsApp Business so each owner's customers chat directly with their own AI bot.",
     stack: ['MCP', 'LangGraph', 'WhatsApp API', 'Vector DB', 'Next.js'],
   },
   {
@@ -428,7 +428,7 @@ export default function Home() {
             <div className="reveal d2">
               <p>
                 Lately I&apos;ve been remodeling <b>LISA</b>, the bank&apos;s machine learning system, and leading
-                broader AI initiatives. Outside work I build constantly: an AI business OS for small businesses,
+                broader AI initiatives. Outside work I build constantly: an AI business web app for small businesses,
                 autonomous negotiation agents, agentic sprint planners, generative media tooling. Always learning, always
                 shipping.
               </p>

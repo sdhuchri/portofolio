@@ -28,7 +28,7 @@ I design and build AI-powered systems that live inside real enterprise environme
 
 My day job is AI Engineering: agentic systems, MCP tools, RAG pipelines, and LLM integrations, grounded by deep roots in core banking and full-stack delivery. A rare combination where I know both the new stack and the legacy one.
 
-Lately I've been remodeling LISA, the bank's machine learning system, and leading broader AI initiatives. Outside work I build constantly: an AI business OS for small businesses, autonomous negotiation agents, agentic sprint planners, generative media tooling. Always learning, always shipping.
+Lately I've been remodeling LISA, the bank's machine learning system, and leading broader AI initiatives. Outside work I build constantly: an AI business web app for small businesses, autonomous negotiation agents, agentic sprint planners, generative media tooling. Always learning, always shipping.
 
 I care about code that is maintainable, honest, and useful. Open to full-time roles, collaboration, and freelance with teams that value clarity over theatre.
 
@@ -49,8 +49,8 @@ I care about code that is maintainable, honest, and useful. Open to full-time ro
 
 ## SELECTED PROJECTS — Selected works.
 
-01. **Business UMKM+** (Agentic SaaS — AI Business OS)
-An all-in-one operating system for Indonesian small businesses (UMKM). Owners run everything from one place: automated financial reports, tax prep, and AI-generated content. Wired through MCP to external systems like Mekari, Odoo, and Accurate, and connected to WhatsApp Business so each owner's customers chat directly with their own AI bot.
+01. **Business UMKM+** (Agentic SaaS — AI business web app)
+An all-in-one web app for Indonesian small businesses (UMKM). Owners run everything from one place: automated financial reports, tax prep, and AI-generated content. Wired through MCP to external systems like Mekari, Odoo, and Accurate, and connected to WhatsApp Business so each owner's customers chat directly with their own AI bot.
 Stack: MCP · LangGraph · WhatsApp Business API · Vector DB · Next.js
 
 02. **NegotiAI** (Agentic AI — autonomous negotiator)

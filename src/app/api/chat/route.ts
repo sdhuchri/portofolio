@@ -12,7 +12,7 @@ async function loadCvText(): Promise<string> {
   if (!cvTextPromise) {
     cvTextPromise = (async () => {
       try {
-        const pdfPath = path.join(process.cwd(), 'public', 'resume', 'Suryana Dhuchri CV 2026 2_4.pdf');
+        const pdfPath = path.join(process.cwd(), 'public', 'resume', 'Suryana_Dhuchri_CV_2026_ATS_EN.pdf');
         const buffer = await fs.readFile(pdfPath);
         const pdfParse = (await import('pdf-parse')).default;
         const data = await pdfParse(buffer);
